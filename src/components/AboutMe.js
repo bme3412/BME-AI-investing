@@ -64,7 +64,7 @@ const AboutMe = () => {
             <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight
                          bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400
                          bg-clip-text text-transparent">
-              Portfolio Analyst & AI Technology Innovator
+              Global Technology Investor & AI-Obsessed Developer
             </h1>
             <div className="flex flex-wrap gap-4 mb-6">
               <a 

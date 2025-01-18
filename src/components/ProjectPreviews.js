@@ -76,7 +76,7 @@ const ProjectPreviews = () => {
       title: "AI Investing Blog",
       description: "Visualize and analyze global market trends using AI to identify patterns and opportunities across different regions and asset classes.",
       technologies: ["Next.js", "RAG", "Agents", "OpenAI", "Anthropic Claude"],
-      image: "/globe.svg",
+      image: "/investment-llm-blog.png",
       learnMoreUrl: "https://github.com/yourusername/ai-investing-blog",
       tryItUrl: "https://ai-investing-blog.yourdomain.com"
     },
