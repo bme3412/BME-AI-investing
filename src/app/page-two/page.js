@@ -1,6 +1,6 @@
 // src/app/page.js
-import Panel from '../components/Panel'
-import AboutMe from '../components/AboutMe'
+import Panel from '@/components/Panel'
+import AboutMe from '@/components/AboutMe'
 
 export default function Home() {
   return (
