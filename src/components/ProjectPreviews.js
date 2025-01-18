@@ -5,7 +5,7 @@ const ProjectPreview = ({ title, description, technologies, image, index, learnM
   const isEven = index % 2 === 0;
   
   return (
-    <div className="min-h-screen flex items-center justify-center p-8 bg-black">
+    <div className="min-h-[90vh] flex items-center justify-center p-8 bg-black">
       <div className={`max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center ${isEven ? '' : 'md:grid-flow-dense'}`}>
         <div className={`space-y-6 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">{title}</h2>
@@ -27,7 +27,7 @@ const ProjectPreview = ({ title, description, technologies, image, index, learnM
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Learn more</span>
+              <span>Details</span>
               <Plus className="w-4 h-4 group-hover:scale-125 transition-transform" />
             </a>
             <a
@@ -36,7 +36,7 @@ const ProjectPreview = ({ title, description, technologies, image, index, learnM
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Try it out</span>
+              <span>Try it out!</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
@@ -62,11 +62,12 @@ const ProjectPreview = ({ title, description, technologies, image, index, learnM
   );
 };
 
+
 const ProjectPreviews = () => {
   const projects = [
     {
       title: "Clarity 2.0 - Big Tech Investment Co-Pilot",
-      description: "Ask anything about the world's leading technology companies and get instant answers and insights. Potentially saves users as much as 50-70% of the time it takes to read and analyze complete earnings transcripts (assumes 1-hour transcript and 250 words-per-minute reading speed).",
+      description: "Work smarter, not harder, and gain clarity. Ask anything about the world's leading technology companies and get instant answers and insights. Potentially saves users as much as 50-70% of the time it takes to read and analyze complete earnings transcripts (assumes 1-hour transcript and 250 words-per-minute reading speed).",
       technologies: ["OpenAI", "React", "Node.js", "Python", "Pinecone Vector Database","AWS"],
       image: "/next-js-copilot.png",
       learnMoreUrl: "https://github.com/yourusername/clarity-2",
@@ -81,7 +82,7 @@ const ProjectPreviews = () => {
       tryItUrl: "https://ai-investing-blog.yourdomain.com"
     },
     {
-      title: "AI Investing Presentation",
+      title: "AI Investing Ideas",
       description: "Automate the extraction and analysis of key information from financial statements, regulatory filings, and research reports.",
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
       image: "/buffet-tech.png",
@@ -90,7 +91,7 @@ const ProjectPreviews = () => {
     },
     {
       title: "ResumeLLM - About Me",
-      description: "I'm looking for my next great opportunity. Ask questions about my background, projects, and skills using your preferred AI model",
+      description: "I'm looking for my next great opportunity - so I turned my resume and work experience into an LLM co-pilot. Ask questions about my background, projects, and skills using your preferred generative AI model - OpenAI, Google Gemini, or Anthropic.",
       technologies: ["OpenAI o1", "Google Gemini", "Anthropic Claude Sonnet 3.5", "Multi-modal AI", "Next.js","Pinecone", "AWS S3"],
       image: "/resume-llm.png",
       learnMoreUrl: "https://github.com/bme3412/resume-LLM",

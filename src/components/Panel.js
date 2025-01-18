@@ -1,15 +1,36 @@
-// src/components/Panel.js
 import Link from 'next/link'
 import Image from 'next/image'
 
 const Panel = ({ 
   title, 
-  href, 
+  url, 
   imageSrc = '/api/placeholder/400/300',
   description = 'Project description goes here'
 }) => {
+  // Check if URL is external
+  const isExternal = url?.startsWith('http') || url?.startsWith('https');
+  
+  // Wrapper component based on whether URL is external
+  const Wrapper = ({ children }) => {
+    if (isExternal) {
+      return (
+        <a href={url} 
+           target="_blank" 
+           rel="noopener noreferrer"
+           className="block transform hover:-translate-y-1 transition-transform duration-300 ease-out">
+          {children}
+        </a>
+      );
+    }
+    return (
+      <Link href={url || '#'} className="block transform hover:-translate-y-1 transition-transform duration-300 ease-out">
+        {children}
+      </Link>
+    );
+  };
+
   return (
-    <Link href={href} className="block transform hover:-translate-y-1 transition-transform duration-300 ease-out">
+    <Wrapper>
       <div className="bg-white 
                     rounded-2xl
                     shadow-[0_20px_50px_rgba(8,_112,_184,_0.1)]
@@ -61,7 +82,7 @@ const Panel = ({
           </div>
         </div>
       </div>
-    </Link>
+    </Wrapper>
   )
 }
 
