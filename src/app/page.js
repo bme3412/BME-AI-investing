@@ -16,7 +16,7 @@ export default function Home() {
                         bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 
                         bg-clip-text text-transparent 
                         hover:scale-105 transition-transform duration-300">
-            AI investing portfolio by Brendan Erhard
+            AI investing projects by Brendan Erhard
           </h2>
           <Link href="/about" className="relative group">
             <button className="px-6 py-2.5 text-white border border-white/50 rounded-lg 

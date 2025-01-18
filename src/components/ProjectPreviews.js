@@ -68,7 +68,7 @@ const ProjectPreviews = () => {
       title: "Clarity 2.0 - Big Tech Investment Co-Pilot",
       description: "Ask anything about the world's leading technology companies and get instant answers and insights. Potentially saves users as much as 50-70% of the time it takes to read and analyze complete earnings transcripts (assumes 1-hour transcript and 250 words-per-minute reading speed).",
       technologies: ["OpenAI", "React", "Node.js", "Python", "Pinecone Vector Database","AWS"],
-      image: "/copilot.png",
+      image: "/next-js-copilot.png",
       learnMoreUrl: "https://github.com/yourusername/clarity-2",
       tryItUrl: "https://clarity-2-demo.yourdomain.com"
     },
@@ -84,7 +84,7 @@ const ProjectPreviews = () => {
       title: "AI Investing Presentation",
       description: "Automate the extraction and analysis of key information from financial statements, regulatory filings, and research reports.",
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
-      image: "/file.svg",
+      image: "/buffet-tech.png",
       learnMoreUrl: "https://github.com/yourusername/ai-investing-presentation",
       tryItUrl: "https://ai-investing-presentation.yourdomain.com"
     },
