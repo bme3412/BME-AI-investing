@@ -16,7 +16,7 @@ const ProjectsModal = ({ isOpen, onClose }) => {
     },
     {
       title: "Invest with AI Blog",
-      url: "https://investment-llm.vercel.app/",
+      url: "https://ai-investing-blog.yourdomain.com",
       imageSrc: "/investment-llm-blog.png",
       description: "Deep dives into AI-driven investment strategies and market analysis."
     },
@@ -125,7 +125,7 @@ const ProjectsModal = ({ isOpen, onClose }) => {
                       <div className="transform transition-all duration-300 ease-out origin-center
                                     hover:scale-110 hover:z-30 relative">
                         <div className="relative">
-                          <Panel {...project} />
+                          <Panel {...project} showDetails={false} />
                         </div>
                       </div>
                     </div>

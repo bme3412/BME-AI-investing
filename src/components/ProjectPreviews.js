@@ -1,67 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Plus, Github } from 'lucide-react';
+import ProjectDetailModal from './ProjectDetailModal';
 
 const ProjectPreview = ({ title, description, technologies, image, index, learnMoreUrl, tryItUrl }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const isEven = index % 2 === 0;
   
   return (
-    <div className="min-h-[90vh] flex items-center justify-center p-8 bg-black">
-      <div className={`max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center ${isEven ? '' : 'md:grid-flow-dense'}`}>
-        <div className={`space-y-6 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">{title}</h2>
-          <p className="text-lg text-gray-400 font-sans">{description}</p>
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider font-sans">Technologies used</h3>
-            <div className="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <span key={tech} className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full font-sans">
-                  {tech}
-                </span>
-              ))}
+    <>
+      <div className="min-h-[90vh] flex items-center justify-center p-8 bg-black">
+        <div className={`max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center ${isEven ? '' : 'md:grid-flow-dense'}`}>
+          <div className={`space-y-6 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">{title}</h2>
+            <p className="text-lg text-gray-400 font-sans">{description}</p>
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider font-sans">Technologies used</h3>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => (
+                  <span key={tech} className="px-3 py-1 text-sm bg-gray-800 text-gray-300 rounded-full font-sans">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="group flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors font-sans"
+              >
+                <span>Details</span>
+                <Plus className="w-4 h-4 group-hover:scale-125 transition-transform" />
+              </button>
+              <a
+                href={tryItUrl}
+                className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Try it out!</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href={learnMoreUrl}
+                className="group flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors font-sans"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>GitHub</span>
+                <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              </a>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <a 
-              href={learnMoreUrl}
-              className="group flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors font-sans"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Details</span>
-              <Plus className="w-4 h-4 group-hover:scale-125 transition-transform" />
-            </a>
-            <a
-              href={tryItUrl}
-              className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Try it out!</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href={learnMoreUrl}
-              className="group flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors font-sans"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>GitHub</span>
-              <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            </a>
+          <div className={`rounded-xl overflow-hidden bg-gray-900 p-8 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+            <img
+              src={image || "/api/placeholder/800/600"}
+              alt={title}
+              className="w-full h-full object-contain transform transition-transform duration-300 hover:scale-110"
+            />
           </div>
         </div>
-        <div className={`rounded-xl overflow-hidden bg-gray-900 p-8 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-          <img
-            src={image || "/api/placeholder/800/600"}
-            alt={title}
-            className="w-full h-full object-contain transform transition-transform duration-300 hover:scale-110"
-          />
-        </div>
       </div>
-    </div>
+
+      <ProjectDetailModal
+        project={{
+          title,
+          url: tryItUrl,
+          imageSrc: image,
+          description
+        }}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </>
   );
 };
-
 
 const ProjectPreviews = () => {
   const projects = [
