@@ -88,7 +88,7 @@ const AboutMe = () => {
                 Cover Letter
               </a>
               <a 
-                href="https://github.com/yourusername"
+                href="https://github.com/bme3412"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
@@ -100,7 +100,7 @@ const AboutMe = () => {
                 GitHub
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername"
+                href="https://linkedin.com/in/brendan-erhard"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
@@ -112,7 +112,7 @@ const AboutMe = () => {
                 LinkedIn
               </a>
               <a 
-                href="mailto:your.email@example.com"
+                href="mailto:erhardbr@gmail.com"
                 className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
                           bg-black/30 backdrop-blur-sm
                           hover:border-white hover:bg-white/10
