@@ -18,7 +18,7 @@ export default function Home() {
                         hover:scale-105 transition-transform duration-300">
             AI investing portfolio by Brendan Erhard
           </h2>
-          <Link href="/page-one" className="relative group">
+          <Link href="/about" className="relative group">
             <button className="px-6 py-2.5 text-white border border-white/50 rounded-lg 
                            bg-black/30 backdrop-blur-sm
                            group-hover:border-white group-hover:bg-white/10
@@ -33,12 +33,19 @@ export default function Home() {
       {/* Hero Section */}
       <main className="container mx-auto px-4 pt-12 md:pt-24 text-center min-h-[80vh] flex flex-col items-center justify-center">
         <h1 className="text-4xl md:text-7xl font-bold max-w-5xl mx-auto leading-tight text-white font-sans">
-          AI will transform the investment management industry
+          AI will <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 hover:scale-105 transition-transform duration-300 inline-block">transform</span> the investment management industry
         </h1>
         
-        <p className="mt-8 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-sans">
-          AI is already changing the world, and the prospect of integrating generative AI into investment management is a generational opportunity that will transform the industry. View my AI investing projects and see my thoughts and experiences as an AI-obsessed technology investor.
-        </p>
+        <div className="mt-8 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-sans space-y-4">
+          <p>
+            AI is already changing the world. Integrating generative AI into investment management is a generational opportunity that will transform the industry.
+          </p>
+          <p>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-semibold hover:from-blue-300 hover:to-purple-300 transition-colors duration-300 cursor-pointer">
+              View my AI investing projects
+            </span> and see my thoughts and experiences as an AI-obsessed technology investor.
+          </p>
+        </div>
         
         <button
           onClick={() => setIsModalOpen(true)}

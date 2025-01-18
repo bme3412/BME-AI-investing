@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowRight, Plus } from 'lucide-react';
+import { ArrowRight, Plus, Github } from 'lucide-react';
 
-const ProjectPreview = ({ title, description, technologies, image, index }) => {
+const ProjectPreview = ({ title, description, technologies, image, index, learnMoreUrl, tryItUrl }) => {
   const isEven = index % 2 === 0;
   
   return (
@@ -20,22 +20,41 @@ const ProjectPreview = ({ title, description, technologies, image, index }) => {
               ))}
             </div>
           </div>
-          <div className="flex space-x-4">
-            <button className="group flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors font-sans">
+          <div className="flex flex-wrap gap-4">
+            <a 
+              href={learnMoreUrl}
+              className="group flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors font-sans"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>Learn more</span>
               <Plus className="w-4 h-4 group-hover:scale-125 transition-transform" />
-            </button>
-            <button className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans">
+            </a>
+            <a
+              href={tryItUrl}
+              className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>Try it out</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
+            <a
+              href={learnMoreUrl}
+              className="group flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors font-sans"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>GitHub</span>
+              <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            </a>
           </div>
         </div>
         <div className={`rounded-xl overflow-hidden bg-gray-900 p-8 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
           <img
             src={image || "/api/placeholder/800/600"}
             alt={title}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transform transition-transform duration-300 hover:scale-110"
           />
         </div>
       </div>
@@ -49,25 +68,33 @@ const ProjectPreviews = () => {
       title: "Clarity 2.0 - Big Tech Investment Co-Pilot",
       description: "Ask anything about the world's leading technology companies and get instant answers and insights. Potentially saves users as much as 50-70% of the time it takes to read and analyze complete earnings transcripts (assumes 1-hour transcript and 250 words-per-minute reading speed).",
       technologies: ["OpenAI", "React", "Node.js", "Python", "Pinecone Vector Database","AWS"],
-      image: "/copilot.png"
+      image: "/copilot.png",
+      learnMoreUrl: "https://github.com/yourusername/clarity-2",
+      tryItUrl: "https://clarity-2-demo.yourdomain.com"
     },
     {
-      title: "Global Market Analysis",
+      title: "AI Investing Blog",
       description: "Visualize and analyze global market trends using AI to identify patterns and opportunities across different regions and asset classes.",
-      technologies: ["Python", "TensorFlow", "D3.js", "PostgreSQL", "Docker"],
-      image: "/globe.svg"
+      technologies: ["Next.js", "RAG", "Agents", "OpenAI", "Anthropic Claude"],
+      image: "/globe.svg",
+      learnMoreUrl: "https://github.com/yourusername/ai-investing-blog",
+      tryItUrl: "https://ai-investing-blog.yourdomain.com"
     },
     {
-      title: "Financial Document Processing",
+      title: "AI Investing Presentation",
       description: "Automate the extraction and analysis of key information from financial statements, regulatory filings, and research reports.",
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
-      image: "/file.svg"
+      image: "/file.svg",
+      learnMoreUrl: "https://github.com/yourusername/ai-investing-presentation",
+      tryItUrl: "https://ai-investing-presentation.yourdomain.com"
     },
     {
-      title: "Portfolio Optimization",
-      description: "AI-driven portfolio management tools for better risk assessment and asset allocation strategies.",
-      technologies: ["R", "Pandas", "NumPy", "Azure ML", "Tableau"],
-      image: "/window.svg"
+      title: "ResumeLLM - About Me",
+      description: "I'm looking for my next great opportunity. Ask questions about my background, projects, and skills using your preferred AI model",
+      technologies: ["OpenAI o1", "Google Gemini", "Anthropic Claude Sonnet 3.5", "Multi-modal AI", "Next.js","Pinecone", "AWS S3"],
+      image: "/resume-llm.png",
+      learnMoreUrl: "https://github.com/bme3412/resume-LLM",
+      tryItUrl: "https://llm-resume-bme.vercel.app/"
     }
   ];
 
