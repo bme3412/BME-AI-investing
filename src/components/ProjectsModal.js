@@ -12,25 +12,25 @@ const ProjectsModal = ({ isOpen, onClose }) => {
       title: "Clarity 2.0 - Investment CoPilot",
       url: "https://clarity-2-demo.yourdomain.com",
       imageSrc: "/next-js-copilot.png",
-      description: "AI-powered tool for organizing and analyzing complex investment data with real-time insights."
+      description: "Ask anything about Big Tech companies and get instant insights. Built with generative AI and vector databases and saves users hours of time. "
     },
     {
-      title: "Invest with AI Blog",
-      url: "https://ai-investing-blog.yourdomain.com",
+      title: "AI Investing Blog",
+      url: "https://investment-llm.vercel.app/",
       imageSrc: "/investment-llm-blog.png",
-      description: "Deep dives into AI-driven investment strategies and market analysis."
+      description: "Comprehensive thought pieces and case studies about the advantages of using AI to transform investment management."
     },
     {
       title: "Resume-LLM",
       url: "https://llm-resume-bme.vercel.app/",
       imageSrc: "/resume-llm.png",
-      description: "Interactive AI resume analyzer powered by multiple LLM models for comprehensive insights."
+      description: "Interactive AI resume powered by AI - ask anything about my background, projects, and experiences!"
     },
     {
       title: "Invest with AI Ideas",
       url: "https://ai-investing-presentation.yourdomain.com",
       imageSrc: "/buffet-tech.png",
-      description: "Curated collection of AI-driven investment opportunities and market trends."
+      description: "100-page slide deck of using LLMs and AI techniques to improve the investment management process."
     }
   ];
 

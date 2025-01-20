@@ -53,7 +53,7 @@ export default function Home() {
             transform the industry.
           </p>
           <p>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-semibold hover:from-blue-300 hover:to-purple-300 transition-colors duration-300 cursor-pointer">
+            <span className="text-white font-bold cursor-pointer">
               View my AI investing projects
             </span>{" "}
             and see my thoughts and experiences as an AI-obsessed technology

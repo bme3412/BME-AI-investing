@@ -82,23 +82,23 @@ const ProjectPreviews = () => {
       description: "Work smarter, not harder, and gain clarity. Ask anything about the world's leading technology companies and get instant answers and insights. Potentially saves users as much as 50-70% of the time it takes to read and analyze complete earnings transcripts (assumes 1-hour transcript and 250 words-per-minute reading speed).",
       technologies: ["OpenAI", "React", "Node.js", "Python", "Pinecone Vector Database","AWS"],
       image: "/next-js-copilot.png",
-      learnMoreUrl: "https://github.com/yourusername/clarity-2",
+      learnMoreUrl: "https://github.com/bme3412/next-copilot",
       tryItUrl: "https://clarity-2-demo.yourdomain.com"
     },
     {
       title: "AI Investing Blog",
-      description: "Visualize and analyze global market trends using AI to identify patterns and opportunities across different regions and asset classes.",
+      description: "Comprehensive thought pieces and case studies about the advantages of using AI to transform investment management.",
       technologies: ["Next.js", "RAG", "Agents", "OpenAI", "Anthropic Claude"],
       image: "/investment-llm-blog.png",
-      learnMoreUrl: "https://github.com/yourusername/ai-investing-blog",
-      tryItUrl: "https://ai-investing-blog.yourdomain.com"
+      learnMoreUrl: "https://github.com/bme3412/investment-llm",
+      tryItUrl: "https://investment-llm.vercel.app/"
     },
     {
       title: "AI Investing Ideas",
-      description: "Automate the extraction and analysis of key information from financial statements, regulatory filings, and research reports.",
+      description: "100-page slide deck documenting how using LLMs and AI techniques can improve the investment management process.",
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
       image: "/buffet-tech.png",
-      learnMoreUrl: "https://github.com/yourusername/ai-investing-presentation",
+      learnMoreUrl: "https://github.com/bme3412",
       tryItUrl: "https://ai-investing-presentation.yourdomain.com"
     },
     {

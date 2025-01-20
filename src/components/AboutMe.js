@@ -1,8 +1,39 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FileText, GithubIcon, LinkedinIcon, Mail, Download, Award, Briefcase, Code, BookOpen, GitBranch, Sparkles, ArrowLeft } from 'lucide-react';
+import {
+  FileText,
+  GithubIcon,
+  LinkedinIcon,
+  Mail,
+  Download,
+  Award,
+  Briefcase,
+  Code,
+  BookOpen,
+  GitBranch,
+  Sparkles,
+  ArrowLeft,
+  X
+} from 'lucide-react';
 
 const AboutMe = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
   const skills = {
     technical: [
       "Python (pandas, matplotlib, scikit-learn, numpy)",
@@ -39,6 +70,51 @@ const AboutMe = () => {
     ]
   };
 
+  const ContactModal = () => {
+    if (!isModalOpen) return null;
+
+    return (
+      <div
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+        onClick={() => setIsModalOpen(false)}
+      >
+        <div
+          className="bg-black/90 border border-white/20 p-6 rounded-lg w-full max-w-md mx-auto"
+          onClick={e => e.stopPropagation()}
+        >
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-bold">Contact Information</h2>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="text-white/60 hover:text-white transition-colors"
+              aria-label="Close Contact Modal"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          <div className="space-y-4">
+            <a
+              href="mailto:erhardbr@gmail.com"
+              className="flex items-center gap-3 p-3 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300"
+            >
+              <Mail className="text-blue-400" size={20} />
+              <span>erhardbr@gmail.com</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/brendan-erhard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300"
+            >
+              <LinkedinIcon className="text-blue-400" size={20} />
+              <span>linkedin.com/in/brendan-erhard</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Back Button */}
@@ -57,6 +133,9 @@ const AboutMe = () => {
         </Link>
       </div>
 
+      {/* ContactModal rendered at root level */}
+      <ContactModal />
+
       <div className="max-w-6xl mx-auto p-6 space-y-8">
         <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl p-8">
           {/* Header Section */}
@@ -67,27 +146,29 @@ const AboutMe = () => {
               Global Technology Investor & AI-Obsessed Developer
             </h1>
             <div className="flex flex-wrap gap-4 mb-6">
-              <a 
-                href="/resume.pdf" 
+              <a
+                href="/resume.pdf"
                 className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
                           bg-black/30 backdrop-blur-sm
                           hover:border-white hover:bg-white/10
                           transition-all duration-300 text-white"
+                download
               >
                 <FileText size={18} />
                 Resume
               </a>
-              <a 
+              <a
                 href="/cover-letter.pdf"
                 className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
                           bg-black/30 backdrop-blur-sm
                           hover:border-white hover:bg-white/10
                           transition-all duration-300 text-white"
+                download
               >
                 <Download size={18} />
                 Cover Letter
               </a>
-              <a 
+              <a
                 href="https://github.com/bme3412"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,7 +180,7 @@ const AboutMe = () => {
                 <GithubIcon size={18} />
                 GitHub
               </a>
-              <a 
+              <a
                 href="https://linkedin.com/in/brendan-erhard"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -111,8 +192,8 @@ const AboutMe = () => {
                 <LinkedinIcon size={18} />
                 LinkedIn
               </a>
-              <a 
-                href="mailto:erhardbr@gmail.com"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
                           bg-black/30 backdrop-blur-sm
                           hover:border-white hover:bg-white/10
@@ -120,7 +201,7 @@ const AboutMe = () => {
               >
                 <Mail size={18} />
                 Contact
-              </a>
+              </button>
             </div>
           </header>
 
@@ -147,7 +228,7 @@ const AboutMe = () => {
             </div>
           </section>
 
-          {/* Current Role Highlights */}
+          {/* Key Achievements */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
                          from-blue-400 to-purple-400 flex items-center gap-2">
