@@ -108,7 +108,7 @@ const ProjectPreviews = () => {
       title: "AI Investing Ideas",
       description: "50-page slide deck documenting how using LLMs and AI techniques can improve the investment management process.",
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
-      image: "/buffet-tech.png",
+      image: "/slide-deck-cover.png",
       learnMoreUrl: "https://github.com/bme3412",
       tryItUrl: "https://bme-ai-investing.vercel.app/slides"
     },

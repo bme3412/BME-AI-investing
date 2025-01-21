@@ -7,64 +7,61 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
 
   const projectDetails = {
     "Clarity 2.0 - Big Tech Investment Co-Pilot": {
-      rationale: "Clarity 2.0 was developed to address the growing need for sophisticated investment analysis tools that leverage AI capabilities. The project aims to democratize access to advanced investment insights by providing real-time analysis of complex market data, making it accessible to both individual and institutional investors.",
+      rationale: "Clarity 2.0 - ask anything about the world's leading technology companies and get instant answers and insights. Potentially saves users as much as 50-70% of the time it takes to read and analyze complete earnings transcripts (assumes 1-hour transcript and 250 words-per-minute reading speed).",
       features: [
-        "Real-time market data analysis with AI-driven insights",
-        "Portfolio optimization using advanced algorithms",
-        "Risk assessment and mitigation strategies",
-        "Custom investment recommendations based on user preferences"
+        "Uses RAG techniques and vector database technology to enable semantic search across 10 of the most important tech companies",
+        "Embeddings generated and stored for 200+ quarterly earnings transcripts and financials",
+        "Enables users to query across companies, over time periods or specific points in time",
+        "Hours of time saved per users, all powered by generative AI"
       ],
       images: [
         "/next-js-copilot.png",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/clarity-prompt.png",
+        "/clarity-response.png"
       ]
     },
     "AI Investing Blog": {
-      rationale: "The AI Investment Blog serves as a knowledge hub for investors seeking to understand the intersection of artificial intelligence and investment strategies. It was created to bridge the gap between technical AI concepts and practical investment applications.",
+      rationale: "Comprehensive thought pieces and case studies about the advantages of using AI to transform investment management.",
       features: [
-        "In-depth analysis of AI-driven investment strategies",
-        "Market trend predictions using machine learning",
-        "Educational content on AI in finance",
-        "Case studies of successful AI implementations"
+        "Provides gentle introduction to LLM technology and its applications",
+        "Articles on Retrieval Augmented Generation (RAG) techniques, Vector Databases, Embeddings, Agents all applied to investment management",
+        "Includes case studies of sucessful AI implementations by prominent investors and academic research",
       ],
       images: [
         "/investment-llm-blog.png",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/blog-llm.png",
+        "/blog-casestudy.png"
       ]
     },
     "AI Investing Ideas": {
-      rationale: "This platform was created to showcase innovative investment opportunities that leverage AI technologies. It serves as a curated collection of market trends and investment strategies that combine traditional wisdom with cutting-edge AI capabilities.",
+      rationale: "50-page slide deck documenting how using LLMs and AI techniques can improve the investment management process.",
       features: [
-        "AI-driven market opportunity identification",
-        "Risk-reward analysis using machine learning",
-        "Automated trend detection and analysis",
-        "Custom investment strategy generation"
+        "Provides details on several end-to-end examples of LLM applications used in investment management",
+        "Includes examples of actual prompts used in applications",
+        "Includes best practices and philosopy of using LLMs, through hands-on experience",
+        "Provides high-level overivew of AI techniques for investment management"
       ],
       images: [
-        "/buffet-tech.png",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/slide-deck-cover.png",
+        "/examples.png",
+        "/prompts.png"
       ]
     },
     "ResumeLLM - About Me": {
-      rationale: "Resume-LLM was developed to revolutionize the way job seekers and recruiters interact with resume content. By leveraging multiple LLM models, it provides deeper insights into qualifications and experience, making the hiring process more efficient and effective.",
+      rationale: "I'm looking for my next great opportunity - so I turned my resume and work experience into an LLM co-pilot. Ask questions about my background, projects, and skills using your preferred generative AI model - OpenAI, Google Gemini, or Anthropic.",
       features: [
-        "Multi-model LLM analysis for comprehensive insights",
-        "Skill gap identification and recommendations",
-        "Career path optimization suggestions",
-        "ATS compatibility analysis and improvements"
+        "Uses RAG techniques and vector database technology to enable semantic search across my work experience, background, skills and projects",
+        "Integrates OpenAI ChatGPT-4o, Google Gemini, and Anthropic Claude Sonnet 3.5 to generate dynamic responses",
+        "Multi-modal option with ability to generate images to supplement responses using replicate.ai",
       ],
       images: [
         "/resume-llm.png",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/openai.png",
+        "/google-ai.png"
       ]
     }
   };
 
-  // Add a fallback for when project details aren't found
   const details = projectDetails[project.title] || {
     rationale: project.description,
     features: [],
@@ -104,7 +101,8 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                          hover:bg-gray-800
                          border border-gray-700 hover:border-gray-600
                          transition-all duration-200 ease-out
-                         shadow-sm hover:shadow-md hover:shadow-blue-500/10"
+                         shadow-sm hover:shadow-md hover:shadow-blue-500/10
+                         font-sans"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -120,7 +118,7 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                                font-mono">
                     Project Rationale
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed font-sans">
                     {details.rationale}
                   </p>
                 </div>
@@ -133,7 +131,7 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                     </h3>
                     <ul className="space-y-4">
                       {details.features.map((feature, index) => (
-                        <li key={index} className="flex items-start text-gray-300">
+                        <li key={index} className="flex items-start text-gray-300 font-sans">
                           <span className="inline-block w-2 h-2 mt-2 mr-3 
                                        bg-gradient-to-r from-blue-400 to-purple-400 
                                        rounded-full" />
@@ -153,7 +151,8 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                            hover:from-blue-600 hover:to-purple-600
                            rounded-lg font-semibold text-white
                            transition-all duration-200 shadow-lg
-                           hover:shadow-xl hover:shadow-blue-500/20"
+                           hover:shadow-xl hover:shadow-blue-500/20
+                           font-sans"
                 >
                   Visit Project
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
@@ -165,7 +164,7 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
               </div>
 
               {/* Right Side - Project Images */}
-              <div className="space-y-6">
+              <div className="space-y-6 lg:col-span-1">
                 {details.images.map((image, index) => (
                   <div 
                     key={index}
@@ -173,13 +172,13 @@ const ProjectDetailModal = ({ project, isOpen, onClose }) => {
                              border border-gray-800/50
                              shadow-lg hover:shadow-xl hover:shadow-blue-500/20
                              transition-all duration-200
-                             aspect-video group"
+                             h-64 w-full group"
                   >
                     <Image
                       src={image}
                       alt={`${project.title} screenshot ${index + 1}`}
                       fill
-                      className="object-cover
+                      className="object-contain
                                transition-transform duration-300
                                group-hover:scale-105"
                     />

@@ -28,9 +28,9 @@ const ProjectsModal = ({ isOpen, onClose }) => {
     },
     {
       title: "Invest with AI Ideas",
-      url: "https://ai-investing-presentation.yourdomain.com",
+      url: "https://bme-ai-investing.vercel.app/slides",
       imageSrc: "/buffet-tech.png",
-      description: "100-page slide deck of using LLMs and AI techniques to improve the investment management process."
+      description: "50-page slide deck of using LLMs and AI techniques to improve the investment management process."
     }
   ];
 

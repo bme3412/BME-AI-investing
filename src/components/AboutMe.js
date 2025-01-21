@@ -1,355 +1,119 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import {
-  FileText,
-  GithubIcon,
-  LinkedinIcon,
-  Mail,
-  Download,
-  Award,
-  Briefcase,
-  Code,
-  BookOpen,
-  GitBranch,
-  Sparkles,
-  ArrowLeft,
-  X
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { FileText, GithubIcon, LinkedinIcon, Mail, Sparkles, X } from 'lucide-react';
 
-const AboutMe = () => {
+const AboutIntro = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Prevent background scrolling when modal is open
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isModalOpen]);
-
-  const skills = {
-    technical: [
-      "Python (pandas, matplotlib, scikit-learn, numpy)",
-      "Large Language Models (OpenAI, Anthropic, Replicate.ai)",
-      "Web Development (Flask, JavaScript, HTML/CSS)",
-      "Database Management (MySQL, MongoDB)",
-      "Financial Platforms (Bloomberg BQNT/BQL, Blackrock Aladdin)",
-      "AI/ML Frameworks (langchain, llama-index, huggingface)"
-    ],
-    financial: [
-      "Portfolio Management",
-      "Investment Analysis",
-      "Market Research",
-      "Financial Modeling",
-      "Risk Assessment",
-      "IPO Analysis"
-    ],
-    aiProjects: [
-      {
-        title: "10-K Parser",
-        description: "Automated summarization tool for 10-K content with topic-based document querying capabilities",
-        tech: ["OpenAI", "Vector Databases", "Python"]
-      },
-      {
-        title: "Earnings Analyzer",
-        description: "Real-time earnings call transcription and analysis system using OpenAI Whisper and AWS",
-        tech: ["AWS", "OpenAI Whisper", "Audio Processing"]
-      },
-      {
-        title: "Investment Research Assistant",
-        description: "Automated information extraction from 4,000+ pages using OpenAI API and langchain",
-        tech: ["LangChain", "OpenAI API", "Document Processing"]
-      }
-    ]
-  };
-
-  const ContactModal = () => {
-    if (!isModalOpen) return null;
-
-    return (
-      <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-        onClick={() => setIsModalOpen(false)}
-      >
-        <div
-          className="bg-black/90 border border-white/20 p-6 rounded-lg w-full max-w-md mx-auto"
-          onClick={e => e.stopPropagation()}
-        >
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold">Contact Information</h2>
-            <button
+  return (
+    <div className="min-h-screen bg-black text-white font-sans p-6">
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-zinc-900 rounded-lg p-6 max-w-md w-full mx-4 relative">
+            <button 
               onClick={() => setIsModalOpen(false)}
-              className="text-white/60 hover:text-white transition-colors"
-              aria-label="Close Contact Modal"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white"
             >
               <X size={20} />
             </button>
-          </div>
-          <div className="space-y-4">
-            <a
-              href="mailto:erhardbr@gmail.com"
-              className="flex items-center gap-3 p-3 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300"
-            >
-              <Mail className="text-blue-400" size={20} />
-              <span>erhardbr@gmail.com</span>
-            </a>
-            <a
-              href="https://linkedin.com/in/brendan-erhard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-3 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300"
-            >
-              <LinkedinIcon className="text-blue-400" size={20} />
-              <span>linkedin.com/in/brendan-erhard</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      {/* Back Button */}
-      <div className="p-6">
-        <Link href="/" className="inline-flex items-center space-x-2 group">
-          <button className="px-6 py-2.5 text-white border border-white/50 rounded-lg
-                          bg-black/30 backdrop-blur-sm
-                          group-hover:border-white group-hover:bg-white/10
-                          transition-all duration-300 ease-out
-                          font-sans">
-            <span className="relative z-10 font-medium tracking-wide flex items-center gap-2">
-              <ArrowLeft size={18} />
-              Back to Home
-            </span>
-          </button>
-        </Link>
-      </div>
-
-      {/* ContactModal rendered at root level */}
-      <ContactModal />
-
-      <div className="max-w-6xl mx-auto p-6 space-y-8">
-        <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl p-8">
-          {/* Header Section */}
-          <header className="mb-8">
-            <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight
-                         bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400
-                         bg-clip-text text-transparent">
-              Global Technology Investor & AI-Obsessed Developer
-            </h1>
-            <div className="flex flex-wrap gap-4 mb-6">
-              <a
-                href="/resume.pdf"
-                className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
-                          bg-black/30 backdrop-blur-sm
-                          hover:border-white hover:bg-white/10
-                          transition-all duration-300 text-white"
-                download
+            
+            <h2 className="text-xl font-bold mb-6">Get in Touch</h2>
+            
+            <div className="space-y-4">
+              <a 
+                href="mailto:brendan.erhard@gmail.com"
+                className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300"
               >
-                <FileText size={18} />
-                Resume
+                <Mail className="text-blue-400" size={20} />
+                <div>
+                  <p className="font-medium">Email</p>
+                  <p className="text-sm text-gray-400">erhardbr@gmail.com</p>
+                </div>
               </a>
-              <a
-                href="/cover-letter.pdf"
-                className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
-                          bg-black/30 backdrop-blur-sm
-                          hover:border-white hover:bg-white/10
-                          transition-all duration-300 text-white"
-                download
-              >
-                <Download size={18} />
-                Cover Letter
-              </a>
-              <a
-                href="https://github.com/bme3412"
+              
+              <a 
+                href="https://www.linkedin.com/in/brendan-erhard/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
-                          bg-black/30 backdrop-blur-sm
-                          hover:border-white hover:bg-white/10
-                          transition-all duration-300 text-white"
+                className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300"
               >
-                <GithubIcon size={18} />
-                GitHub
+                <LinkedinIcon className="text-blue-400" size={20} />
+                <div>
+                  <p className="font-medium">LinkedIn</p>
+                  <p className="text-sm text-gray-400">Connect with me</p>
+                </div>
               </a>
-              <a
-                href="https://linkedin.com/in/brendan-erhard"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
-                          bg-black/30 backdrop-blur-sm
-                          hover:border-white hover:bg-white/10
-                          transition-all duration-300 text-white"
-              >
-                <LinkedinIcon size={18} />
-                LinkedIn
-              </a>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg
-                          bg-black/30 backdrop-blur-sm
-                          hover:border-white hover:bg-white/10
-                          transition-all duration-300 text-white"
-              >
-                <Mail size={18} />
-                Contact
-              </button>
             </div>
-          </header>
-
-          {/* Professional Summary */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-emerald-400 via-teal-500 to-cyan-500 flex items-center gap-2">
-              <Briefcase size={24} />
-              Professional Summary
-            </h2>
-            <div className="prose prose-invert max-w-none">
-              <p className="text-gray-300 mb-4">
-                Lead Portfolio Analyst at Columbia Threadneedle Investments, managing the Global Technology Growth Fund (CMTFX) 
-                with $3.5bn AUM. The fund has achieved remarkable success, winning the Refinitiv Lipper Fund award for 5 
-                consecutive years in the science and technology category, consistently delivering top-quartile performance 
-                over 5 years and top-decile performance over 10 years.
-              </p>
-              <p className="text-gray-300">
-                Combining deep financial expertise with cutting-edge AI technology, I`ve pioneered the development of 
-                innovative tools that enhance investment research and analysis. My approach integrates traditional 
-                financial analysis with machine learning and large language models to generate deeper insights and 
-                more efficient research processes.
-              </p>
-            </div>
-          </section>
-
-          {/* Key Achievements */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-blue-400 to-purple-400 flex items-center gap-2">
-              <Award size={24} />
-              Key Achievements
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-3 text-white">Investment Performance</h3>
-                <ul className="space-y-2 text-gray-300">
-                  <li>• Helped grow fund assets from $500M to $3.5bn</li>
-                  <li>• Top-quartile performance over 5 years (193 funds)</li>
-                  <li>• Top-decile performance over 10 years (156 funds)</li>
-                  <li>• 5 consecutive Refinitiv Lipper Fund awards</li>
-                </ul>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-3 text-white">Research & Analysis</h3>
-                <ul className="space-y-2 text-gray-300">
-                  <li>• Lead analyst for 100+ technology and healthcare IPOs annually</li>
-                  <li>• Developed proprietary Python-based analysis tools</li>
-                  <li>• Created interactive sector analysis models</li>
-                  <li>• Managed $10M+ capital deployment decisions</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* AI Projects */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-emerald-400 to-cyan-400 flex items-center gap-2">
-              <Sparkles size={24} />
-              AI/ML Projects
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {skills.aiProjects.map((project, index) => (
-                <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold mb-3 text-white">{project.title}</h3>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="bg-blue-500/10 text-blue-400 px-2 py-1 rounded-full text-sm border border-blue-500/20">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Technical Skills */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-purple-400 to-pink-400 flex items-center gap-2">
-              <Code size={24} />
-              Technical Expertise
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Development & AI</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.technical.map((skill, index) => (
-                    <span key={index} className="bg-purple-500/10 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-500/20">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-3 text-white">Financial Analysis</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.financial.map((skill, index) => (
-                    <span key={index} className="bg-emerald-500/10 text-emerald-300 px-3 py-1 rounded-full text-sm border border-emerald-500/20">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Education */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-blue-400 to-cyan-400 flex items-center gap-2">
-              <BookOpen size={24} />
-              Education & Achievements
-            </h2>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-white">Boston College</h3>
-              <p className="text-gray-300 mb-2">Bachelor of Arts in International Studies</p>
-              <p className="text-gray-300 mb-4">Concentration in Economics | GPA: 3.55/4.00</p>
-              <div className="space-y-2">
-                <p className="text-gray-300">• High School Class Valedictorian (Class of 500)</p>
-                <p className="text-gray-300">• Eagle Scout Award - Boy Scouts of America</p>
-                <p className="text-gray-300">• Study Abroad: Institut d`Etudes Politiques de Paris</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Open Source */}
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r 
-                         from-teal-400 to-emerald-400 flex items-center gap-2">
-              <GitBranch size={24} />
-              Open Source & Community
-            </h2>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg">
-              <p className="text-gray-300 mb-4">
-                Active contributor to the AI and financial technology community. My project portfolio and contributions 
-                can be found at: <a href="https://ai-project-deploy.vercel.app" className="text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-200">
-                ai-project-deploy.vercel.app</a>
-              </p>
-            </div>
-          </section>
+          </div>
         </div>
+      )}
+
+      <div className="max-w-4xl mx-auto space-y-8">
+        {/* Header Section */}
+        <header className="mb-8">
+          <h1 className="text-4xl font-bold mb-4 font-mono tracking-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Global Technology Investor & AI-Obsessed Developer
+          </h1>
+          
+          <div className="flex flex-wrap gap-4 mb-6">
+            <a href="/resume.pdf" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
+              <FileText size={18} />
+              Resume
+            </a>
+            <a href="/cover-letter.pdf" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
+              <FileText size={18} />
+              Cover Letter
+            </a>
+            <a href="https://github.com/bme3412" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
+              <GithubIcon size={18} />
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/brendan-erhard" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
+              <LinkedinIcon size={18} />
+              LinkedIn
+            </a>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300"
+            >
+              <Mail size={18} />
+              Contact
+            </button>
+          </div>
+        </header>
+
+        {/* Introduction */}
+        <section className="prose prose-invert max-w-none">
+          <div className="bg-white/5 rounded-lg p-6">
+            <h2 className="flex items-center gap-2 text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              <Sparkles size={24} className="text-blue-400" />
+              Summary
+            </h2>
+            <p className="text-gray-300 mb-4">
+              Hi, I`m Brendan, thank you for visiting my AI/LLM Investing project portfolio. 
+              As a global technology investor and analyst on a $4 billion AUM global tech fund, I have had a front-row seat to the explosion of AI across the economy. 
+              It has been fascinating to be a part of. I remain very enthusiastic about the intersection of AI and investing, and I am excited to share my journey with you.
+            </p>
+            <p className="text-gray-300 mb-4">
+              Since teaching myself Python in 2019, what started as a way to enhance my investment process has evolved into a deep passion for programming and AI development. I hope my hands-on experience and projects inspire you to explore the world of AI investing.
+              I firmly believe that AI will transform the investment management industry, and I am excited to be a part of that transformation.
+            </p>
+            <p className="text-gray-300 mb-4">
+              In addition to being a full-time tech investor, my technical journey spans multiple domains, including:
+            </p>
+            <ul className="space-y-2 text-gray-300">
+              <li>• Building vector databases using Pydantic, Pinecone, and FAISS</li>
+              <li>• Developing NLP solutions with Langchain, LlamaIndex, and Hugging Face</li>
+              <li>• Creating RAG pipelines and implementing time series forecasting with Meta Prophet</li>
+              <li>• Deploying full-stack applications (Python & JavaScript) that integrate OpenAI, Anthropic, and Google Gemini APIs</li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );
 };
 
-export default AboutMe;
+export default AboutIntro;
