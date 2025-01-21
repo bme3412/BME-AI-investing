@@ -106,11 +106,11 @@ const ProjectPreviews = () => {
     },
     {
       title: "AI Investing Ideas",
-      description: "100-page slide deck documenting how using LLMs and AI techniques can improve the investment management process.",
+      description: "50-page slide deck documenting how using LLMs and AI techniques can improve the investment management process.",
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
       image: "/buffet-tech.png",
       learnMoreUrl: "https://github.com/bme3412",
-      tryItUrl: "/slides"
+      tryItUrl: "https://bme-ai-investing.vercel.app/slides"
     },
     {
       title: "ResumeLLM - About Me",
