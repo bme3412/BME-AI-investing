@@ -58,11 +58,11 @@ const AboutIntro = () => {
           </h1>
           
           <div className="flex flex-wrap gap-4 mb-6">
-            <a href="/resume.pdf" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
+            <a href="/Brendan-Erhard-Resume-1.2025.pdf" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
               <FileText size={18} />
               Resume
             </a>
-            <a href="/cover-letter.pdf" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
+            <a href="/Brendan-Erhard-coverletter-2025.pdf" className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded-lg hover:bg-white/10 transition-all duration-300">
               <FileText size={18} />
               Cover Letter
             </a>
