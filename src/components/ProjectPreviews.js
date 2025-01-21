@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Plus, Github } from 'lucide-react';
 import ProjectDetailModal from './ProjectDetailModal';
+import Link from 'next/link';
 
 const ProjectPreview = ({ title, description, technologies, image, index, learnMoreUrl, tryItUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,15 +32,25 @@ const ProjectPreview = ({ title, description, technologies, image, index, learnM
                 <span>Details</span>
                 <Plus className="w-4 h-4 group-hover:scale-125 transition-transform" />
               </button>
-              <a
-                href={tryItUrl}
-                className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>Try it out!</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              {title === "AI Investing Ideas" ? (
+                <Link
+                  href="/slides"
+                  className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans"
+                >
+                  <span>Try it out!</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              ) : (
+                <a
+                  href={tryItUrl}
+                  className="group flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors font-sans"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Try it out!</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              )}
               <a
                 href={learnMoreUrl}
                 className="group flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors font-sans"
@@ -83,7 +94,7 @@ const ProjectPreviews = () => {
       technologies: ["OpenAI", "React", "Node.js", "Python", "Pinecone Vector Database","AWS"],
       image: "/next-js-copilot.png",
       learnMoreUrl: "https://github.com/bme3412/next-copilot",
-      tryItUrl: "https://clarity-2-demo.yourdomain.com"
+      tryItUrl: "https://investment-copilot-eight.vercel.app/"
     },
     {
       title: "AI Investing Blog",
@@ -99,7 +110,7 @@ const ProjectPreviews = () => {
       technologies: ["PyTorch", "FastAPI", "Redis", "Elasticsearch", "GCP"],
       image: "/buffet-tech.png",
       learnMoreUrl: "https://github.com/bme3412",
-      tryItUrl: "https://ai-investing-presentation.yourdomain.com"
+      tryItUrl: "/slides"
     },
     {
       title: "ResumeLLM - About Me",

@@ -10,7 +10,7 @@ const ProjectsModal = ({ isOpen, onClose }) => {
   const projects = [
     {
       title: "Clarity 2.0 - Investment CoPilot",
-      url: "https://clarity-2-demo.yourdomain.com",
+      url: "https://investment-copilot-eight.vercel.app/",
       imageSrc: "/next-js-copilot.png",
       description: "Ask anything about Big Tech companies and get instant insights. Built with generative AI and vector databases and saves users hours of time. "
     },
